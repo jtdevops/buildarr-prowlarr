@@ -23,8 +23,8 @@ from logging import getLogger
 from typing import Any, Dict, List, Literal, Mapping, Optional, Set
 
 from buildarr.config import RemoteMapEntry
-from buildarr.types import BaseEnum, LowerCaseNonEmptyStr, NonEmptyStr, Password, Port
-from pydantic import SecretStr, validator
+from buildarr.types import BaseEnum, LowerCaseNonEmptyStr, NonEmptyStr, Password, Port, SecretStr
+from pydantic import validator
 
 from .base import DownloadClient
 
