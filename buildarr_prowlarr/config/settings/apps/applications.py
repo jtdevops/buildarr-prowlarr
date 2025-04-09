@@ -26,7 +26,7 @@ import prowlarr
 
 from buildarr.config import RemoteMapEntry
 from buildarr.state import state
-from buildarr.types import BaseEnum, InstanceName, LowerCaseNonEmptyStr, NonEmptyStr, Password
+from buildarr.types import BaseEnum, LowerCaseNonEmptyStr, NonEmptyStr, Password
 from packaging.version import Version
 from pydantic import AnyHttpUrl, Field, SecretStr, validator
 from typing_extensions import Annotated, Self
@@ -409,7 +409,7 @@ class RadarrApplication(ArrApplication):
     Type value associated with this kind of application.
     """
 
-    instance_name: Optional[InstanceName] = Field(None, plugin="radarr")
+    instance_name: Optional[LowerCaseNonEmptyStr] = Field(None, plugin="radarr")
     """
     The name of the Radarr instance within Buildarr, if adding
     a Buildarr-defined Radarr instance to this Prowlarr instance.
@@ -509,7 +509,7 @@ class SonarrApplication(ArrApplication):
     Type value associated with this kind of application.
     """
 
-    instance_name: Optional[InstanceName] = Field(None, plugin="sonarr")
+    instance_name: Optional[LowerCaseNonEmptyStr] = Field(None, plugin="sonarr")
     """
     The name of the Sonarr instance within Buildarr, if adding
     a Buildarr-defined Sonarr instance to this Prowlarr instance.
