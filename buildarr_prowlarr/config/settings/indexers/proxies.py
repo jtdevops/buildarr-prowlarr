@@ -375,7 +375,7 @@ class Socks5Proxy(Proxy):
 
 
 PROXY_TYPE_MAP = {
-    proxy_type._implementation.lower(): proxy_type  # type: ignore[attr-defined]
+    proxy_type.__private_attributes__["_implementation"].default.lower(): proxy_type
     for proxy_type in (FlaresolverrProxy, HttpProxy, Socks4Proxy, Socks5Proxy)
 }
 

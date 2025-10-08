@@ -57,7 +57,7 @@ from .usenet import (
 logger = getLogger(__name__)
 
 DOWNLOADCLIENT_TYPE_MAP = {
-    downloadclient_type._implementation.lower(): downloadclient_type  # type: ignore[attr-defined]
+    downloadclient_type.__private_attributes__["_implementation"].default.lower(): downloadclient_type
     for downloadclient_type in (
         Aria2DownloadClient,
         DelugeDownloadClient,

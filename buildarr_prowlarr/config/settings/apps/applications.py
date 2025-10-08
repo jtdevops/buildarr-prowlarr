@@ -630,7 +630,7 @@ class WhisparrApplication(ArrApplication):
 
 
 APPLICATION_TYPE_MAP = {
-    application_type._implementation: application_type  # type: ignore[attr-defined]
+    application_type.__private_attributes__["_implementation"].default: application_type
     for application_type in (
         LazylibrarianApplication,
         LidarrApplication,

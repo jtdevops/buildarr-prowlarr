@@ -1454,7 +1454,7 @@ class WebhookNotification(Notification):
 
 
 NOTIFICATION_TYPE_MAP = {
-    notification_type._implementation.lower(): notification_type  # type: ignore[attr-defined]
+    notification_type.__private_attributes__["_implementation"].default.lower(): notification_type
     for notification_type in (
         AppriseNotification,
         BoxcarNotification,
