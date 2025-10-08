@@ -139,7 +139,7 @@ class Application(ProwlarrConfigBase):
         api_schema: prowlarr.ApplicationResource,
         tag_ids: Mapping[str, int],
     ) -> List[RemoteMapEntry]:
-        return cls._remote_map
+        return cls.__private_attributes__["_remote_map"].default
 
     @classmethod
     def _get_sync_category_options(

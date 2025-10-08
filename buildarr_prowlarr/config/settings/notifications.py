@@ -258,7 +258,7 @@ class Notification(ProwlarrConfigBase):
         secrets: ProwlarrSecrets,
         tag_ids: Mapping[str, int],
     ) -> List[RemoteMapEntry]:
-        return cls._remote_map
+        return cls.__private_attributes__["_remote_map"].default
 
     @classmethod
     def _from_remote(

@@ -104,7 +104,7 @@ class GeneralSettings(ProwlarrConfigBase):
 
     @classmethod
     def _from_remote(cls, remote_attrs: Mapping[str, Any]) -> Self:
-        return cls(**cls.get_local_attrs(cls._remote_map, remote_attrs))
+        return cls(**cls.get_local_attrs(cls.__private_attributes__["_remote_map"].default, remote_attrs))
 
     def _update_remote_attrs(
         self,

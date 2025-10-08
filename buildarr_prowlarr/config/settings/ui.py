@@ -220,7 +220,7 @@ class ProwlarrUISettings(ProwlarrConfigBase):
             ui_config = prowlarr.UiConfigApi(api_client).get_ui_config()
         return cls(
             **cls.get_local_attrs(
-                remote_map=cls._remote_map,
+                remote_map=cls.__private_attributes__["_remote_map"].default,
                 remote_attrs=ui_config.to_dict(),
             ),
         )
