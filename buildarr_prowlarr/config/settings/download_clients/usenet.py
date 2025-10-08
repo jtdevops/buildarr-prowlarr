@@ -124,14 +124,14 @@ class DownloadstationUsenetDownloadClient(UsenetDownloadClient):
     Use a secure connection when connecting to the download client.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = None
@@ -200,14 +200,14 @@ class NzbgetDownloadClient(UsenetDownloadClient):
     Adds a prefix to the NZBGet url, e.g. `http://[host]:[port]/[url_base]/jsonrpc`.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = None

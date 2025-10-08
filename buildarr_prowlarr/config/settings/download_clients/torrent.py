@@ -253,9 +253,9 @@ class DelugeDownloadClient(TorrentDownloadClient):
     Adds a prefix to the Deluge JSON URL, e.g. `http://[host]:[port]/[url_base]/json`.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = "prowlarr"
@@ -343,14 +343,14 @@ class DownloadstationTorrentDownloadClient(TorrentDownloadClient):
     Use a secure connection when connecting to the download client.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = None
@@ -419,14 +419,14 @@ class FloodDownloadClient(TorrentDownloadClient):
     Optionally adds a prefix to Flood API, such as `[protocol]://[host]:[port]/[url_base]api`.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     destination: Optional[str] = None
@@ -649,14 +649,14 @@ class HadoukenDownloadClient(TorrentDownloadClient):
     Adds a prefix to the Hadouken url, e.g. `http://[host]:[port]/[url_base]/api`.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: NonEmptyStr = "prowlarr"  # type: ignore[assignment]
@@ -735,14 +735,14 @@ class QbittorrentDownloadClient(TorrentDownloadClient):
     Adds a prefix to the qBittorrent URL, e.g. `http://[host]:[port]/[url_base]/api`.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = "prowlarr"
@@ -846,14 +846,14 @@ class RtorrentDownloadClient(TorrentDownloadClient):
     When using RTorrent this usually is `RPC2` or `plugins/rpc/rpc.php`.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = "prowlarr"
@@ -1135,14 +1135,14 @@ class UtorrentDownloadClient(TorrentDownloadClient):
     Adds a prefix to the uTorrent URL, e.g. `http://[host]:[port]/[url_base]/api`.
     """
 
-    username: NonEmptyStr
+    username: Optional[str] = None
     """
-    User name to use when authenticating with the download client.
+    User name to use when authenticating with the download client, if required.
     """
 
-    password: Password
+    password: Optional[SecretStr] = None
     """
-    Password to use to authenticate the download client user.
+    Password to use to authenticate the download client user, if required.
     """
 
     category: Optional[str] = "prowlarr"
