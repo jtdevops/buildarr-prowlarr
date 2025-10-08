@@ -27,7 +27,7 @@ import prowlarr
 from buildarr.config import RemoteMapEntry
 from buildarr.types import BaseEnum, NonEmptyStr, Password, Port
 from packaging.version import Version
-from pydantic import AnyHttpUrl, ConstrainedInt, Field, NameEmail, SecretStr, validator
+from pydantic import AnyHttpUrl, Field, NameEmail, SecretStr, validator
 from typing_extensions import Annotated, Self
 
 from ...api import prowlarr_api_client
@@ -133,14 +133,6 @@ class PushoverPriority(BaseEnum):
     normal = 0
     high = 1
     emergency = 2
-
-
-class PushoverRetry(ConstrainedInt):
-    """
-    Constrained integer type to enforce Pushover retry field limits.
-    """
-
-    ge = 30
 
 
 class WebhookMethod(BaseEnum):
@@ -1188,7 +1180,7 @@ class PushoverNotification(Notification):
     * `emergency`
     """
 
-    retry: Union[Literal[0], PushoverRetry] = 0
+    retry: Union[Literal[0], Annotated[int, Field(ge=30)]] = 0
     """
     Interval to retry emergency alerts, in seconds.
 
